@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self';"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-xxx or sha256-yyy' " /> -->
+
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <title>Dennis Li's Weather App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="content">
+        <h1>Dennis Li's Weather App</h1>
+        <h4>Which city would you like to examine the weather for?</h4>
+        <input type="text" name="cityName" id="cityName"><br><br>
+        <button id="submitButton">Submit</button>
+    </div>
+  </body>
+  <script src="weather.js"></script>
+</html>
