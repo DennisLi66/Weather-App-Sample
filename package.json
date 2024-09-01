@@ -1,0 +1,23 @@
+{
+  "name": "weather-app-sample",
+  "version": "1.0.0",
+  "description": "Weather App for",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DennisLi66/Weather-App-Sample.git"
+  },
+  "author": "Dennis Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DennisLi66/Weather-App-Sample/issues"
+  },
+  "homepage": "https://github.com/DennisLi66/Weather-App-Sample#readme",
+  "devDependencies": {
+    "electron": "^32.0.1"
+  }
+}
