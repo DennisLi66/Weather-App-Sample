@@ -19,5 +19,9 @@
   "homepage": "https://github.com/DennisLi66/Weather-App-Sample#readme",
   "devDependencies": {
     "electron": "^32.0.1"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "js-yaml": "^4.1.0"
   }
 }
