@@ -2,11 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self';"> -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-xxx or sha256-yyy' " /> -->
-
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src https://weather.visualcrossing.com"/>
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
     <title>Dennis Li's Weather App</title>
     <link rel="stylesheet" href="style.css">
