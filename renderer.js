@@ -44,11 +44,19 @@ async function readCity(){
                 }
                 document.getElementById('content').innerHTML =
                 `
+                <h1>Dennis Li's Weather App</h1>
+                <h4>Which city would you like to examine the weather for?</h4>
+                <input type="text" name="cityName" id="cityName"><br><br>
+                <button id="submitButton">Submit</button>
+                <br>
                 <h1>${city}</h1>
                 <div id='days'>
                     ${megaString}
                 </div>
                 `;
+                document.getElementById('submitButton').addEventListener("click",function(){
+                    readCity();
+                })
             }).catch(error => {
                 console.log(error);
                 return false;     
