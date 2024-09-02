@@ -33,11 +33,29 @@ async function readCity(){
                     var temperature = json.days[i].temp;
                     var weather = json.days[i].conditions;
                     var day = json.days[i].datetime.split('-');
+                    var hoursString = ""
+                    for (let o = 0; o < json.days[i].hours.length; o++){
+                        var time = json.days[i].hours[o].datetime.split(':');
+                        if (parseInt(time[0]) === 0) time = "12:00 AM";
+                        else if (parseInt(time[0]) < 12) time = `${time[0]}:00 AM`;
+                        else if (parseInt(time[0]) === 12) time = `${time[0]}:00 PM`; 
+                        else if (parseInt(time[0]) >= 22) time = `${parseInt(time[0]) - 12}:00 PM`;
+                        else time = `${'0' + (parseInt(time[0]) - 12).toString() }:00 PM`;
+                        hoursString +=
+                        `
+                        <div class='dayColumnBox'>
+                        Time: ${time}<br>
+                        Weather: ${json.days[i].hours[o].conditions}<br>
+                        Temperature: ${json.days[i].hours[o].temp}°F <br>
+                        </div>
+                        `
+                    }
                     megaString += 
                     `<div class='dayColumn'>
                         <h4>Conditions for ${months[parseInt(day[1])-1]} ${day[2]}, ${day[0]}</h4>
                         <h4>Primarily, the weather will be ${weather}. </h4>
                         <h4>The temperature will be ${temperature}°F. </h4>
+                        ${hoursString}
                     </div>
                     `
                 }
