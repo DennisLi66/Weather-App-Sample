@@ -1,9 +1,6 @@
-// make screen darker during nighttime //Less Feasible
 // change background image or color depending on weather of current day
-// offer fahrenheit and celsius  //Unneccessary but doable
-// cookies for reacent weahter options and recent searches //unlikely
-// if you click enter, search weather
-//give an array if times and days
+//give by-hour breakdown for each column of day
+//Need to add the ability to perform a new search
 function changeStyleForWeather(weather,temperature,celOrFahr,timeOfDay){
     //change the style of the screen based on above params
 }
@@ -17,6 +14,8 @@ async function readCity(){
     //contact the api
     const date = new Date();
     var today = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`; //need yyyy-mm-dd
+    var months = [ "January", "February", "March", "April", "May", "June", 
+           "July", "August", "September", "October", "November", "December" ];
     date.setDate(date.getDate()+4);
     var later = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     var apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${today}/${later}?key=${fL.API_KEY}`;
@@ -30,16 +29,25 @@ async function readCity(){
         }else{
             response.json().then(json => {
                 console.log(json.days);
-                var temperature = json.days[0].temp;
-                var weather = json.days[0].conditions;
-                var celOrFahr = "Fahrenheit" //FIX THIS
-                var timeOfDay = "10:00PM"; //FIX THIS
+                var megaString = "";
+                for (let i = 0; i < json.days.length; i++){
+                    var temperature = json.days[i].temp;
+                    var weather = json.days[i].conditions;
+                    var day = json.days[i].datetime.split('-');
+                    megaString += 
+                    `<div class='dayColumn'>
+                        <h4>Conditions for ${months[parseInt(day[1])-1]} ${day[2]}, ${day[0]}</h4>
+                        <h4>Primarily, the weather will be ${weather}. </h4>
+                        <h4>The temperature will be ${temperature}°F. </h4>
+                    </div>
+                    `
+                }
                 document.getElementById('content').innerHTML =
                 `
                 <h1>${city}</h1>
-                <h4>It is currently ${timeOfDay} in ${city}.</h4>
-                <h4>The weather right now is ${weather}. </h4>
-                <h4>The temperature is ${temperature}° ${celOrFahr}. </h4>
+                <div id='days'>
+                    ${megaString}
+                </div>
                 `;
             }).catch(error => {
                 console.log(error);

@@ -7,3 +7,12 @@ body{
     /* background-color: blueviolet; */
     text-align: center;
 }
+#days{
+    display: flex;
+}
+.dayColumn{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px black solid;
+}
