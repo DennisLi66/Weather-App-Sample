@@ -13,5 +13,22 @@ try {
   }
 
 contextBridge.exposeInMainWorld('fL', {
-  API_KEY: API_KEY,
+  contactWeatherAPI: (location,startDate,endDate)=>{
+    const date = new Date();
+    //need yyyy-mm-dd
+    var today = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+    date.setDate(date.getDate()+5);
+    var later = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+    var apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${today}/${later}?key=${API_KEY}`;
+    // Example    https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK/2020-10-01/2020-12-31?key=YOUR_API_KEY
+    // console.log(apiURL); 
+    // fetch(apiURL)
+    //   .then(response => {
+
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     return false;
+    //   })
+  }
 })
