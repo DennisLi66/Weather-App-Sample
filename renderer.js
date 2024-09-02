@@ -71,3 +71,6 @@ async function readCity(){
 document.getElementById('submitButton').addEventListener("click",function(){
     readCity();
 })
+document.getElementById('textToggler').addEventListener("click",function(){
+    document.getElementById('textToToggle').style.display = document.getElementById('textToToggle').style.display === 'none' ? 'block' : 'none'
+})
