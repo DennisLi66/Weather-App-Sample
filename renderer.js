@@ -14,8 +14,7 @@ async function readCity(){
     //contact the api
     const date = new Date();
     var today = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`; //need yyyy-mm-dd
-    var months = [ "January", "February", "March", "April", "May", "June", 
-           "July", "August", "September", "October", "November", "December" ];
+    var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
     date.setDate(date.getDate()+4);
     var later = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     var apiURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${today}/${later}?key=${fL.API_KEY}`;

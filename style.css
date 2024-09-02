@@ -20,3 +20,15 @@ body{
     padding: 10px;
     border: 1px black solid;
 }
+#footer{
+    background-color: lightgray;
+    text-align: center;
+    box-sizing: border-box;
+    position: absolute;;
+    bottom: 0px;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: 1px black solid;
+}
